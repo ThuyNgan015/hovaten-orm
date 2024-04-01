@@ -8,13 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    //Quy ước tên table
+    /*
+    Tên Model: Post => table: posts
+    Tên Model: ProductCategory: product_categories
+    */
 
     protected $table = "posts";
     // Quy ước khóa chính, mặc định laravel sẽ lấy field id làm khóa chính.
 
-    // protected $primarykey = 'id';
+    protected $primarykey = 'id';
 
     //public $incrementing = false;
     //protected $keyType = 'string';
-    public $timestamps = false;
+    public $timestamps = true;
+
+    const CREATED_AT = 'create_at';
+    const UPDATED_AT = 'updated_at';
+
+    protected $attributes = [
+        'status' => 0
+    ];
 }
